@@ -1,0 +1,11 @@
+[user]
+	name = Carlos Cardoso Dias
+	email = ccd.leron@gmail.com
+[credential "https://github.com"]
+	username = carloscdias
+[core]
+	editor = vim
+[color]
+  ui = true
+[alias]
+  prettylog = log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit
