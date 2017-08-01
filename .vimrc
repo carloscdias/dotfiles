@@ -58,6 +58,9 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" Material colorscheme
+" Monokai colorscheme
 colorscheme monokai
+
+" Show hidden chars
+set list
 
