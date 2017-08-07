@@ -25,6 +25,10 @@ set hlsearch
 " Press space to toggle highlighting on/off, and show current value.
 noremap <Space> :set hlsearch! hlsearch?<CR>
 
+" Highlight line over length (80 columns layout)
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 " Tabs shortcuts
 
 nnoremap <C-h> :tabprevious<CR>
