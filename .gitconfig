@@ -1,6 +1,6 @@
 [user]
 	name = Carlos Cardoso Dias
-	email = ccd.leron@gmail.com
+	email = carlosdias.dev@gmail.com
 [credential "https://github.com"]
 	username = carloscdias
 [core]
@@ -8,4 +8,11 @@
 [color]
   ui = true
 [alias]
-  prettylog = log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit
+  plog = log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
