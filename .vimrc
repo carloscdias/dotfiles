@@ -6,6 +6,8 @@
 " vim-fugitive
 " vim-gitgutter
 
+let mapleader = ","
+
 execute pathogen#infect()
 
 " General
@@ -19,6 +21,14 @@ set shiftwidth=2
 set expandtab
 
 set number
+
+" syntax for ejs files
+au BufNewFile,BufRead *.ejs set filetype=html
+
+" vim diff shortcuts
+map <Leader>1 :diffget LOCAL<CR>
+map <Leader>2 :diffget BASE<CR>
+map <Leader>3 :diffget REMOTE<CR>
 
 set incsearch
 set hlsearch
