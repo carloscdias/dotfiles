@@ -1,4 +1,7 @@
-FILES=.gitconfig .vimrc .vim
-
 install:
-	cp -r $(FILES) ${HOME}
+	@./install.sh ${HOME}
+
+test:
+	@mkdir test
+	@./install.sh test
+
