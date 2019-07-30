@@ -1,3 +1,7 @@
+" Load defaults
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -29,6 +33,8 @@ Plugin 'tpope/vim-fugitive'
 " vim-fugitive
 Plugin 'airblade/vim-gitgutter'
 " vim-gitgutter
+Plugin 'ycm-core/YouCompleteMe'
+" YouCompleteMe
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,9 +42,7 @@ filetype plugin indent on    " required
 
 " Put your non-Plugin stuff after this line
 syntax on
-
 set background=dark
-
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -50,14 +54,15 @@ set number
 au BufNewFile,BufRead *.ejs set filetype=html
 
 " vim diff shortcuts
-map <Leader>1 :diffget LOCAL<CR>
-map <Leader>2 :diffget BASE<CR>
-map <Leader>3 :diffget REMOTE<CR>
+nnoremap <silent> <C-1> :diffget LOCAL<CR>
+nnoremap <silent> <C-2> :diffget BASE<CR>
+nnoremap <silent> <C-3> :diffget REMOTE<CR>
 
+" Search setup
 set incsearch
 set hlsearch
 " Press space to toggle highlighting on/off, and show current value.
-noremap <Space> :set hlsearch! hlsearch?<CR>
+noremap <silent> <Space> :set hlsearch! hlsearch?<CR>
 
 " Monokai colorscheme
 colorscheme monokai
@@ -80,8 +85,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " NERDTree Configs
-nnoremap <C-o> :NERDTreeToggle<CR>
-"autocmd vimenter * NERDTree
+nnoremap <silent> <C-o> :NERDTreeToggle<CR>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -96,10 +100,19 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 " Tabs shortcuts
-
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+nnoremap <silent> <C-h> :tabprevious<CR>
+nnoremap <silent> <C-l> :tabnext<CR>
 
 let mapleader = ","
+
+" Configure YCM
+
+" Disable on typing suggestions
+let g:ycm_min_num_of_chars_for_completion = 99
+" Close preview window
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" Accept autocomplete suggestion with Enter
+let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+" Shortcut for YcmCompleter FixIt
+nnoremap <silent> <C-f> :YcmCompleter FixIt<CR>
