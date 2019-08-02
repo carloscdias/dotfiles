@@ -116,3 +116,5 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 " Shortcut for YcmCompleter FixIt
 nnoremap <silent> <C-f> :YcmCompleter FixIt<CR>
+" Retab shortcut
+nnoremap <silent> <leader><tab> :retab<CR>
