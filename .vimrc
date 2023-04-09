@@ -8,6 +8,8 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+" fzf setup
+" set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
 " Brief help
@@ -45,14 +47,20 @@ filetype plugin indent on    " required
 
 " Put your non-Plugin stuff after this line
 syntax on
+set textwidth=120
 set background=dark
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
+set autoindent
 set expandtab
 let mapleader = ","
 
+" make backspaces more powerfull
+set backspace=indent,eol,start
 " Show line numbers
 set number
+set showcmd
 
 " vim diff shortcuts
 nnoremap <silent> <C-1> :diffget LOCAL<CR>
